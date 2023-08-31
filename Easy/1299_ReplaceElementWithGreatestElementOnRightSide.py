@@ -9,13 +9,11 @@ class Solution:
         #     arr[i] = greatest
         # arr[p-1] = -1
         # return arr
-        largest = arr[len(arr)-1]
-        arr[len(arr)-1] = -1 
-        for i in range(len(arr)-2, -1, -1):
-            temp = 0
-            if(arr[i])> largest:
-                temp = arr[i]
-            arr[i] = largest 
-            if(temp>0):
-                largest = temp
+        highest = arr[-1];
+        arr[-1] = -1
+        for i in range(len(arr)-2, -1, -1 ):
+            if arr[i]> highest:
+                arr[i], highest = highest, arr[i]
+            else:
+                arr[i] = highest
         return arr
