@@ -4,13 +4,9 @@ class Solution:
         output=""
         shortest = min(strs, key=len)
         while counter < len(shortest):
-            localCounter = 0
             for word in strs:
-                if word[counter] == shortest[counter]:
-                    localCounter +=1
-            if(localCounter == len(strs)):
-                output += shortest[counter]
-            else:
-                return output
+                if word[counter] != shortest[counter]:
+                    return output
+            output += shortest[counter]
             counter+=1
         return output
