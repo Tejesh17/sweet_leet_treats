@@ -5,11 +5,8 @@ class Solution:
         i = 0
         m=0
         while i< len(nums):
-            if(seen.get(nums[i], 0) == 0):
-                seen[nums[i]] = 1
-                i+=1
-            elif seen[nums[i]] <2 :
-                seen[nums[i]] = 2
+            if(seen.get(nums[i], 0) < 2):
+                seen[nums[i]] = 1 + seen.get(nums[i], 0)
                 i+=1
             else:
                 nums.pop(i)
